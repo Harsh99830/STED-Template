@@ -1,0 +1,167 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Styles */
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Logo Styling */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Logo Spin Animation */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card Styling */
+.card {
+  padding: 2em;
+}
+
+/* Documentation Link */
+.read-the-docs {
+  color: #888;
+}
+
+/* Full Page Container */
+.container {
+  width: 90vw;
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sections */
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.6s ease-in-out;
+}
+
+/* Section Colors */
+.section-0 { background: #3498db; } /* Blue */
+.section-1 { background: #e74c3c; } /* Red */
+.section-2 { background: #2ecc71; } /* Green */
+.section-3 { background: #9b59b6; } /* Purple */
+.section-4 { background: #f1c40f; } /* Yellow */
+.section-5 { background: #1abc9c; } /* Cyan */
+
+/* Slide Wrapper */
+.slide {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Pagination Dots */
+.pagination {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.dot:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.4);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons button {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-buttons button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.nav-buttons button:disabled {
+  background: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+section-content {
+  text-align: center;
+  color: white;
+}
+
+.section-content img {
+  margin-top: 10px;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
