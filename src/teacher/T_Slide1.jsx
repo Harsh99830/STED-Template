@@ -1,9 +1,9 @@
-import FullPageScroll from "./FullPageScroll";
+import FullPageScroll from "../components/FullPageScroll";
 
-export default function Slide1() {
+export default function T_Slide1() {
   const sections = [
     <div className="section-content">
-      <h1>Welcome to Students Section 1</h1>
+      <h1>Welcome to Teachers Section 1</h1>
       <p>This is a customizable section.</p>
     </div>,
     <div className="section-content">
@@ -18,5 +18,5 @@ export default function Slide1() {
 
   const colors = ["#3498db", "#e74c3c", "#2ecc71"];
 
-  return <FullPageScroll sections={sections} colors={colors} nextSlide="/slide-2" role="student" />;
+  return <FullPageScroll sections={sections} colors={colors} nextSlide="/teacher-slide-2" role="teacher" />;
 }
