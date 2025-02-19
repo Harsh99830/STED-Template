@@ -1,4 +1,4 @@
-import FullPageScroll from "./FullPageScroll";
+import FullPageScroll from "./FullPageScroll"; // Correct Import
 
 export default function Slide1() {
   const sections = [
@@ -20,5 +20,5 @@ export default function Slide1() {
 
   const colors = ["#3498db", "#e74c3c", "#2ecc71"];
 
-  return <FullPageScroll sections={sections} colors={colors} nextSlide="/slide-2" role="student" />;
+  return <FullPageScroll sections={sections} colors={colors} nextSlide="/slide-2" />;
 }

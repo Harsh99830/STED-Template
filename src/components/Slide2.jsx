@@ -18,5 +18,5 @@ export default function Slide2() {
 
   const colors = ["#9b59b6", "#f1c40f", "#1abc9c"];
 
-  return <FullPageScroll sections={sections} colors={colors} prevSlide="/"  role="student"/>;
+  return <FullPageScroll sections={sections} colors={colors} prevSlide="/slide-1"  role="student"/>;
 }
