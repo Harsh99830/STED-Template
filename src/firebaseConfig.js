@@ -13,7 +13,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: "G-3N1RK1Y061"
 };
-
+// console.log(import.meta.env.VITE_FIREBASE_DATABASE_URL);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app); // Initialize Realtime Database
