@@ -15,7 +15,7 @@ export default function T_Slide1() {
     <div className="section-content">
       <h1>Final Section</h1>
       <p>Customize this as well.</p>
-    </div>,
+    </div>
   ];
 
   const colors = ["#3498db", "#e74c3c", "#2ecc71"];

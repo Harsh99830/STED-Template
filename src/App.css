@@ -56,16 +56,27 @@
 }
 
 /* Full Page Container */
-.container {
+.teacher-container {
+  width: 60vw;
+  height: 60vh;
+  overflow: hidden;
+  position: absolute;
+  top: 4%;
+  left: 3%;
+  
+}
+
+.student-container {
   width: 90vw;
   height: 90vh;
   overflow: hidden;
   position: relative;
 }
 
+
 /* Sections */
-.section {
-  height: 100vh;
+.teacher-section{
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,6 +85,92 @@
   color: white;
   transition: background-color 0.6s ease-in-out;
 }
+
+.student-section{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.6s ease-in-out;
+}
+
+
+.preview-container {
+  width: 30vw;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  /* border-left: 2px solid #ccc; */
+  position: absolute;
+  left: 19%;
+  bottom: 4%;
+  border-radius: 10px;
+}
+
+.preview-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  border: black solid;
+  border-radius: 10px;
+}
+
+/* Guide Section */
+.guide-section {
+  width: 300px; /* Fixed width */
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05); /* Light background */
+  padding: 20px;
+  box-sizing: border-box;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guide-section h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.guide-section ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+.guide-section li {
+  margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guide-section {
+    width: 100%; /* Full width on smaller screens */
+    height: auto;
+    position: relative;
+    border-left: none;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+
 
 /* Section Colors */
 .section-0 { background: #3498db; } /* Blue */
