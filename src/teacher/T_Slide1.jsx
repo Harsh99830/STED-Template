@@ -18,7 +18,30 @@ export default function T_Slide1() {
     </div>
   ];
 
+  const guideSections = [
+    <div>
+      <h2>Guide for Section 1</h2>
+      <p>This is the guide content for section 1.</p>
+    </div>,
+    <div>
+      <h2>Guide for Section 2</h2>
+      <p>This is the guide content for section 2.</p>
+    </div>,
+    <div>
+      <h2>Guide for Section 3</h2>
+      <p>This is the guide content for section 3.</p>
+    </div>
+  ];
+
   const colors = ["#3498db", "#e74c3c", "#2ecc71"];
 
-  return <FullPageScroll sections={sections} colors={colors} nextSlide="/teacher-slide-2" role="teacher" />;
+  return (
+    <FullPageScroll
+      sections={sections}
+      colors={colors}
+      nextSlide="/teacher-slide-2"
+      prevSlide="/teacher-slide-0"
+      guideSections={guideSections}
+    />
+  );
 }

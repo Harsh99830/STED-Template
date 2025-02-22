@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseConfig";
 import { ref, set, onValue } from "firebase/database";
 
-export default function FullPageScroll({ sections, colors, nextSlide, prevSlide }) {
+export default function FullPageScroll({ sections, colors, nextSlide, prevSlide, guideSections }) {
   const navigate = useNavigate();
   const sectionsRef = useRef([]);
   const [index, setIndex] = useState(0);
@@ -143,14 +143,24 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide 
           </div>
         )}
       </div>
-      {isTeacher && sections.length > 0 && index + 1 < sections.length && colors[index + 1] && (
-  <div className="preview-container">
-    <section className="preview-section" style={{ backgroundColor: colors[index + 1] }}>
-      {sections[index + 1]}
-    </section>
-  </div>
-)}
 
+      {/* Guide Section */}
+      {isTeacher && guideSections && (
+        <div className="guide-container">
+          <div className="guide-section">
+            {guideSections[index]}
+          </div>
+        </div>
+      )}
+
+      {/* Preview Section */}
+      {isTeacher && sections.length > 0 && index + 1 < sections.length && colors[index + 1] && (
+        <div className="preview-container">
+          <section className="preview-section" style={{ backgroundColor: colors[index + 1] }}>
+            {sections[index + 1]}
+          </section>
+        </div>
+      )}
     </div>
   );
 }
