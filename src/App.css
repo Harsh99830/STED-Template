@@ -91,7 +91,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: white;
   transition: background-color 0.6s ease-in-out;
@@ -245,7 +245,7 @@ section-content {
 
 .section-content img {
   margin-top: 10px;
-  width: 500px;
+  width: 300px;
   height: auto;
   border-radius: 10px;
 }
