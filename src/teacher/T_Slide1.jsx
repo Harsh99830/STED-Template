@@ -40,7 +40,7 @@ export default function T_Slide1() {
       sections={sections}
       colors={colors}
       nextSlide="/teacher-slide-2"
-      prevSlide="/teacher-slide-0"
+      role="teacher"
       guideSections={guideSections}
     />
   );

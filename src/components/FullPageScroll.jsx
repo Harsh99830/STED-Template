@@ -54,11 +54,15 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
     const routeRef = ref(db, "teacherRoute");
     return onValue(routeRef, (snapshot) => {
       const newRoute = snapshot.val();
-      if (newRoute) {
+      console.log("New Firebase Route:", newRoute);
+  
+      // Ensure only valid routes are used
+      if (newRoute && newRoute !== "/teacher-slide-0") {
         if (isTeacher) {
           navigate(newRoute, { replace: true });
         } else {
-          navigate(newRoute.replace("teacher-", ""), { replace: true });
+          const studentRoute = newRoute.replace("teacher-", "");
+          navigate(studentRoute, { replace: true });
           setTimeout(() => {
             setIndex(0);
             sectionsRef.current[0]?.scrollIntoView({ behavior: "instant" });
@@ -66,7 +70,8 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
         }
       }
     });
-  }, [navigate, sectionsRef, isTeacher]);
+  }, [navigate, isTeacher]);
+  
 
   // Handle wheel events for scrolling between sections (for teachers)
   useEffect(() => {
@@ -97,18 +102,24 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
   // Handle keyboard navigation
   const handleKeyDown = (event) => {
     if (event.key === "ArrowRight" && nextSlide) {
-      navigate(nextSlide);
-      setIndex(0);
       if (isTeacher) {
-        set(ref(db, "teacherRoute"), nextSlide);
-        setTimeout(() => set(ref(db, "teacherSlide"), 0), 300);
+        set(ref(db, "teacherRoute"), nextSlide).then(() => {
+          console.log("Updated Firebase Route:", nextSlide);
+          navigate(nextSlide);
+          setTimeout(() => set(ref(db, "teacherSlide"), 0), 300);
+        });
+      } else {
+        navigate(nextSlide);
       }
     } else if (event.key === "ArrowLeft" && prevSlide) {
-      navigate(prevSlide);
-      setIndex(0);
       if (isTeacher) {
-        set(ref(db, "teacherRoute"), prevSlide);
-        setTimeout(() => set(ref(db, "teacherSlide"), 0), 300);
+        set(ref(db, "teacherRoute"), prevSlide).then(() => {
+          console.log("Updated Firebase Route:", prevSlide);
+          navigate(prevSlide);
+          setTimeout(() => set(ref(db, "teacherSlide"), 0), 300);
+        });
+      } else {
+        navigate(prevSlide);
       }
     } else if (event.key === "ArrowDown") {
       scrollToSection(index + 1);
@@ -116,6 +127,7 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
       scrollToSection(index - 1);
     }
   };
+  
 
   // Add keyboard event listener
   useEffect(() => {
