@@ -36,8 +36,7 @@ export default function T_Slide2() {
   return <FullPageScroll 
   sections={sections} 
   colors={colors} 
-  prevSlide="/teacher-slide-1" 
-  role="teacher"
+  prevSlide="/teacher-slide-1"
   guideSections={guideSections}
   />
 
