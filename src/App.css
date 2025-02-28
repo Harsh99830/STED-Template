@@ -104,6 +104,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.0rem;
   background-color: rgba(0, 0, 0, 0.1);
   /* border-left: 2px solid #ccc; */
   position: absolute;
@@ -118,11 +119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 2.1rem;
   opacity: 0.7;
   border: black solid;
   border-radius: 10px;
 }
+
+
+
 
 /* Guide Section */
 .guide-section {
@@ -241,7 +245,7 @@ section-content {
 
 .section-content img {
   margin-top: 10px;
-  width: 200px;
+  width: 500px;
   height: auto;
   border-radius: 10px;
 }

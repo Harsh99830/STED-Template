@@ -1,3 +1,4 @@
+import React from "react";
 import "../App.css";
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -166,13 +167,21 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
       )}
 
       {/* Preview Section */}
-      {isTeacher && sections.length > 0 && index + 1 < sections.length && colors[index + 1] && (
-        <div className="preview-container">
-          <section className="preview-section" style={{ backgroundColor: colors[index + 1] }}>
-            {sections[index + 1]}
-          </section>
-        </div>
-      )}
+      {/* Preview Section */}
+{/* Preview Section */}
+{isTeacher && sections.length > 0 && index + 1 < sections.length && colors[index + 1] && (
+  <div className="preview-container">
+    <section className="preview-section" style={{ backgroundColor: colors[index + 1] }}>
+      <div className="preview-content">
+        {React.cloneElement(sections[index + 1], {
+          style: { transform: "scale(0.5)", transformOrigin: "center" },
+        })}
+      </div>
+    </section>
+  </div>
+)}
+
+
     </div>
   );
 }
