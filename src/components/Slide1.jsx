@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import FullPageScroll from "./FullPageScroll"; // Correct Import
 
 export default function Slide1() {
+  const [studentName, setStudentName] = useState("");
+
+  useEffect(() => {
+    const name = localStorage.getItem("studentName"); // Get student name
+    if (name) {
+      setStudentName(name);
+      if (!sessionStorage.getItem("alertShown")) {
+        alert(`Welcome, ${name}!`);
+        sessionStorage.setItem("alertShown", "true"); // Prevent multiple alerts
+      }
+    }
+  }, []);
+
   const sections = [
     <div className="section-content">
-      <h1>Welcome to Section 1</h1>
+      <h1>Welcome, {studentName}!</h1>
       <p>This is a customizable section.</p>
       <img src="https://via.placeholder.com/300" alt="Placeholder" />
     </div>,
