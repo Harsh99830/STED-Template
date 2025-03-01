@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { db } from "../firebaseConfig";
 import { ref, onValue } from "firebase/database";
 import FullPageScroll from "../components/FullPageScroll";
+import Polls from "../components/Polls";
 
 export default function T_Slide1() {
   const [students, setStudents] = useState([]);
@@ -10,7 +11,6 @@ export default function T_Slide1() {
   // Fetch real-time student data from Firebase
   useEffect(() => {
     const presentRef = ref(db, "presentStudents");
-
     onValue(presentRef, (snapshot) => {
       if (snapshot.exists()) {
         const studentData = Object.values(snapshot.val());
@@ -22,20 +22,20 @@ export default function T_Slide1() {
   }, []);
 
   const sections = [
-    <div className="section-content">
+    <div key="section-1" className="section-content">
       <h1>Welcome to Teachers Section 1</h1>
       <p>This is a customizable section.</p>
       <img src="https://via.placeholder.com/300" alt="Placeholder" />
     </div>,
-    <div className="section-content">
-      <h1>Explore Section 2</h1>
-      <p>More custom content goes here.</p>
-      <img src="/bugatti.png" alt="hlo" style={{ marginLeft: "100px" }} />
+    <div key="section-2" className="section-content">
+      <Polls role="teacher" pollId="poll1" /> {/* First poll */}
     </div>,
-    <div className="section-content">
-      <h1>Final Section</h1>
-      <p>Customize this as well.</p>
-    </div>
+    <div key="section-3" className="section-content">
+      <Polls role="teacher" pollId="poll2" /> {/* Second poll */}
+    </div>,
+    <div key="section-4" className="section-content">
+    <Polls role="teacher" pollId="poll2" />
+  </div>,
   ];
 
   const guideSections = [
@@ -50,14 +50,17 @@ export default function T_Slide1() {
     <div>
       <h2>Guide for Section 3</h2>
       <p>This is the guide content for section 3.</p>
-    </div>
+    </div>,
+    <div>
+    <h2>Guide for Section 4</h2>
+    <p>This is the guide content for section 4.</p>
+  </div>
   ];
 
   const colors = ["#3498db", "#e74c3c", "#2ecc71"];
 
   return (
     <>
-      {/* "Total Students" Button at the top */}
       <div className="total-students-container">
         <button onClick={() => setShowModal(true)} className="total-students-btn">
           Total Students
@@ -72,7 +75,6 @@ export default function T_Slide1() {
         guideSections={guideSections}
       />
 
-      {/* Modal Popup for Student List */}
       {showModal && (
         <div className="modal">
           <div className="modal-content">

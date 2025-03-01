@@ -56,7 +56,7 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
     return onValue(routeRef, (snapshot) => {
       const newRoute = snapshot.val();
       console.log("New Firebase Route:", newRoute);
-  
+
       // Ensure only valid routes are used
       if (newRoute && newRoute !== "/teacher-slide-0") {
         if (isTeacher) {
@@ -72,7 +72,6 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
       }
     });
   }, [navigate, isTeacher]);
-  
 
   // Handle wheel events for scrolling between sections (for teachers)
   useEffect(() => {
@@ -103,7 +102,7 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
   // Handle keyboard navigation
   const handleKeyDown = (event) => {
     if (!isTeacher) return; // Prevent students from using keyboard navigation
-  
+
     if (event.key === "ArrowRight" && nextSlide) {
       set(ref(db, "teacherRoute"), nextSlide).then(() => {
         console.log("Updated Firebase Route:", nextSlide);
@@ -122,8 +121,6 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
       scrollToSection(index - 1);
     }
   };
-  
-  
 
   // Add keyboard event listener
   useEffect(() => {
@@ -162,21 +159,20 @@ export default function FullPageScroll({ sections, colors, nextSlide, prevSlide,
       )}
 
       {/* Preview Section */}
-      {/* Preview Section */}
-{/* Preview Section */}
-{isTeacher && sections.length > 0 && index + 1 < sections.length && colors[index + 1] && (
-  <div className="preview-container">
-    <section className="preview-section" style={{ backgroundColor: colors[index + 1] }}>
-      <div className="preview-content">
-        {React.cloneElement(sections[index + 1], {
-          style: { transform: "scale(0.5)", transformOrigin: "center" },
-        })}
-      </div>
-    </section>
-  </div>
-)}
-
-
+      {isTeacher && sections.length > 0 && index + 1 < sections.length && (
+        <div className="preview-container">
+          <section
+            className="preview-section"
+            style={{ backgroundColor: colors[index + 1] }}
+          >
+            <div className="preview-content">
+              {React.cloneElement(sections[index + 1], {
+                style: { transform: "scale(0.5)", transformOrigin: "center" },
+              })}
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }

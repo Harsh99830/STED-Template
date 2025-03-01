@@ -1,35 +1,38 @@
-import { useEffect, useState } from "react";
-import FullPageScroll from "./FullPageScroll"; // Correct Import
+import { useState, useEffect } from "react";
+import { db } from "../firebaseConfig";
+import { ref, onValue } from "firebase/database";
+import FullPageScroll from "./FullPageScroll";
+import Polls from "./Polls";
 
 export default function Slide1() {
   const [studentName, setStudentName] = useState("");
 
   useEffect(() => {
-    const name = localStorage.getItem("studentName"); // Get student name
+    const name = localStorage.getItem("studentName");
     if (name) {
       setStudentName(name);
       if (!sessionStorage.getItem("alertShown")) {
         alert(`Welcome, ${name}!`);
-        sessionStorage.setItem("alertShown", "true"); // Prevent multiple alerts
+        sessionStorage.setItem("alertShown", "true");
       }
     }
   }, []);
 
   const sections = [
-    <div className="section-content">
+    <div key="section-1" className="section-content">
       <h1>Welcome, {studentName}!</h1>
       <p>This is a customizable section.</p>
       <img src="https://via.placeholder.com/300" alt="Placeholder" />
     </div>,
-    <div className="section-content">
-      <h1>Explore Section 2</h1>
-      <p>More custom content goes here.</p>
-      <img src="/bugatti.png" alt="hlo" style={{ marginLeft: "100px" }} />
+    <div key="section-2" className="section-content">
+      <Polls role="student" pollId="poll1" /> {/* First poll */}
     </div>,
-    <div className="section-content">
-      <h1>Final Section</h1>
-      <p>Customize this as well.</p>
+    <div key="section-3" className="section-content">
+      <Polls role="student" pollId="poll2" /> {/* Second poll */}
     </div>,
+  <div key="section-4" className="section-content">
+  <Polls role="student" pollId="poll2" /> {/* Second poll */}
+</div>,
   ];
 
   const colors = ["#3498db", "#e74c3c", "#2ecc71"];

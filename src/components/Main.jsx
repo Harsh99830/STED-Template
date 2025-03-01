@@ -47,6 +47,7 @@ const Main = () => {
 
       // Redirect to "/slide-1"
       navigate("/slide-1");
+      alert(`Welcome ${studentData.name}`)
     } else {
       alert("Invalid Registration Number!");
     }
