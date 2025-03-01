@@ -18,7 +18,7 @@ const PollLeaderboard = ({ pollData }) => {
   };
 
   return (
-    <div style={{ width: "100%", height: "400px" }}>
+    <div style={{ width: "600px", height: "700px" }}>
       <h2>Leaderboard</h2>
       <Bar
         data={chartData}
@@ -31,9 +31,9 @@ const PollLeaderboard = ({ pollData }) => {
                 display: false,
               },
               ticks: {
-                color: "#000", // Color of option names
+                color: "#fff", // Color of option names
                 font: {
-                  size: 16,
+                  size: 22,
                 },
               },
             },
@@ -42,6 +42,7 @@ const PollLeaderboard = ({ pollData }) => {
                 display: false,
               },
               ticks: {
+                color: "#fff",
                 font: {
                   size: 16,
                 },
