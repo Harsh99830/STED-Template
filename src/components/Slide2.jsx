@@ -1,4 +1,5 @@
 import FullPageScroll from "./FullPageScroll";
+import FeedbackForm from "./FeedbackForm";
 
 export default function Slide2() {
   const sections = [
@@ -14,9 +15,10 @@ export default function Slide2() {
       <h1>Section 6</h1>
       <p>Modify this as needed.</p>
     </div>,
+    <FeedbackForm />, // Imported FeedbackForm Component
   ];
 
-  const colors = ["#9b59b6", "#f1c40f", "#1abc9c"];
+  const colors = ["#9b59b6", "#f1c40f", "#1abc9c", "#e67e22"];
 
-  return <FullPageScroll sections={sections} colors={colors} prevSlide="/slide-1"  role="student"/>;
+  return <FullPageScroll sections={sections} colors={colors} prevSlide="/slide-1" />;
 }
